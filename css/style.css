@@ -1,0 +1,115 @@
+@import './themes/dark.css';
+@import './themes/light.css';
+
+html svg {
+    fill: var(--color_text);
+}
+
+html .theme-toggler path {
+    fill: var(--color_text);
+}
+
+html #moon {
+    visibility: hidden;
+}
+
+.theme-toggler {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+* {
+    transition: color 0.6s ease, background 0.6s ease;
+}
+
+body {
+    height: 100vh;
+    background: var(--color_main);
+    cursor: none;
+    margin: 0;
+    display: flex;
+    font-family: monospace;
+    font-family: 'Fira Code';
+    font-weight: 600;
+    overflow-x: hidden;
+}
+
+body svg {
+    transition: fill 0.6s ease;
+}
+
+body h1,
+body p,
+body a {
+    color: var(--color_text);
+}
+
+body a {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    /* border-bottom: 2px solid var(--color_text); */
+    border: 2px solid var(--color_text);
+    padding: 10px 20px;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+body a svg {
+    margin-right: 10px;
+}
+
+body .theme-toggler {
+    padding: 20px;
+}
+
+body .cursor {
+    pointer-events: none;
+}
+
+body .cursor__ball {
+    position: absolute;
+    top: 0;
+    left: 0;
+    mix-blend-mode: difference;
+    z-index: 1000;
+}
+
+.cursor__ball--big {
+    display: block;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: var(--color_main);
+    transform: scale(1);
+    transition: transform .15s ease;
+}
+
+.cursor__ball--small {
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--color_main);
+}
+
+body .content {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--color_main);
+}
+
+body a {
+    border-bottom: 2px solid currentcolor;
+}
+
+body h1,
+body p,
+body a {
+    color: var(--color_text);
+}
