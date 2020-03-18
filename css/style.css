@@ -26,6 +26,12 @@ html {
     overflow-x: hidden;
 }
 
+html,
+body {
+    padding: 0;
+    margin: 0;
+}
+
 body {
     height: 100vh;
     background: var(--color_main);
@@ -38,13 +44,43 @@ body {
     overflow-x: hidden;
 }
 
-.theme-toggler {
+#content {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--color_main);
+}
+
+#themeTogglerLabel {
+    position: absolute;
+    top: 0;
+    right: 0;
     padding: 20px;
 }
 
+#themeToggler {
+    visibility: hidden;
+    display: none;
+}
+
+#themeToggler:checked+#content {
+    --color_main: #010101;
+    --color_text: #ffc;
+}
+
+#themeToggler:checked+#content>#themeTogglerLabel>svg #sun {
+    visibility: hidden;
+}
+
+#themeToggler:checked+#content>#themeTogglerLabel>svg #moon {
+    visibility: visible;
+}
 
 /* CURSOR */
-.cursor {
+#cursor {
     pointer-events: none;
 }
 
@@ -75,14 +111,3 @@ body {
 }
 
 /* END CURSOR  */
-
-
-.content {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: var(--color_main);
-}
