@@ -1,8 +1,11 @@
+@import './root_variables.css';
 @import './themes/dark.css';
 @import './themes/light.css';
+@import './typography.css';
 
-html svg {
-    fill: var(--color_text);
+* {
+    transition: color var(--transition_middle) ease,
+        background var(--transition_middle) ease;
 }
 
 html .theme-toggler path {
@@ -19,8 +22,8 @@ html #moon {
     right: 0;
 }
 
-* {
-    transition: color 0.6s ease, background 0.6s ease;
+html {
+    overflow-x: hidden;
 }
 
 body {
@@ -35,40 +38,17 @@ body {
     overflow-x: hidden;
 }
 
-body svg {
-    transition: fill 0.6s ease;
-}
-
-body h1,
-body p,
-body a {
-    color: var(--color_text);
-}
-
-body a {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    /* border-bottom: 2px solid var(--color_text); */
-    border: 2px solid var(--color_text);
-    padding: 10px 20px;
-    text-transform: uppercase;
-    font-weight: 800;
-}
-
-body a svg {
-    margin-right: 10px;
-}
-
-body .theme-toggler {
+.theme-toggler {
     padding: 20px;
 }
 
-body .cursor {
+
+/* CURSOR */
+.cursor {
     pointer-events: none;
 }
 
-body .cursor__ball {
+.cursor__ball {
     position: absolute;
     top: 0;
     left: 0;
@@ -94,7 +74,10 @@ body .cursor__ball {
     background-color: var(--color_main);
 }
 
-body .content {
+/* END CURSOR  */
+
+
+.content {
     height: 100%;
     width: 100%;
     display: flex;
@@ -102,14 +85,4 @@ body .content {
     justify-content: center;
     align-items: center;
     background: var(--color_main);
-}
-
-body a {
-    border-bottom: 2px solid currentcolor;
-}
-
-body h1,
-body p,
-body a {
-    color: var(--color_text);
 }

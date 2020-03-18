@@ -27,7 +27,7 @@ setInterval(function () {
     yp += ((mouseY - yp) / 6);
     $bigBall.style.left = xp - 45 + 'px';
     $bigBall.style.top = yp - 45 + 'px';
-}, 10);
+}, 1);
 
 function onMouseHover() { 
     $bigBall.style.transform = 'scale(2)';
