@@ -27,23 +27,55 @@ setInterval(function () {
     yp += ((mouseY - yp) / 6);
     $bigBall.style.left = xp - 45 + 'px';
     $bigBall.style.top = yp - 45 + 'px';
-}, 1);
+}, 10);
 
-function onMouseHover() { 
-    $bigBall.style.transform = 'scale(2)';
+function onMouseHover() {
+    $bigBall.style.transform = 'scale(1.4)';
 }
 
 function onMouseHoverOut() {
-    $bigBall.style.transform = 'scale(1)';
+    $bigBall.style.transform = 'scale(.4)';
 }
 
-function test() {
-    document.documentElement.classList.toggle('dark');
-    if ($sun.style.visibility == 'hidden') {
-        $sun.style.visibility = 'visible';
-        $moon.style.visibility = 'hidden';
-    } else {
-        $sun.style.visibility = 'hidden';
-        $moon.style.visibility = 'visible';
-    }
+
+// HELLO WORLD ANIMATION 
+const phraselist = [
+    "Привет, Мир!",
+    "Совет: включитe инструменты разработчика, весь код прокомментирован",
+    "Спасите",
+];
+
+let helloworld = document.getElementById('hello-world');
+let letterPrintTime = 50;
+let timePerPhrase = 5000;
+
+function printMessage(input) {
+    input = input.split('');
+    helloworld.innerHTML = '<mark>$</mark>:';
+    let i = 0;
+    let messageInterval = setInterval(function () {
+        helloworld.innerHTML += input[i];
+        if (i >= input.length - 1) {
+            i = 0;
+            clearInterval(messageInterval);
+            // setTimeout(phraseGame, 3000);
+        }
+        i++;
+    }, letterPrintTime);
 }
+
+let lastRandom = null;
+
+function phraseGame() {
+    // const randomElement = phraselist[Math.floor(Math.random() * phraselist.length)];
+    // printMessage(randomElement);
+
+    // Наилучший вариант с использованием цикла
+    phraselist.forEach(function (value, currentIndex) {
+        setTimeout(function () {
+            printMessage(value);
+        }, timePerPhrase * currentIndex);
+    });
+}
+phraseGame();
+setInterval(phraseGame, timePerPhrase * (phraselist.length + 1));

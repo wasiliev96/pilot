@@ -1,12 +1,159 @@
-@import './root_variables.css';
-@import './themes/dark.css';
-@import './themes/light.css';
-@import './typography.css';
-
-* {
-    transition: color var(--transition_middle) ease,
-        background var(--transition_middle) ease;
+:root {
+    --transition_fast: .15s;
+    --transition_middle: .3s;
+    --transition_long: .45s;
+    --animation_default: cubic-bezier(0.645, 0.045, 0.355, 1);
 }
+
+/* TYPOGRAPHY */
+* {
+    user-select: none;
+    box-sizing: border-box;
+    cursor: none;
+}
+
+html,
+body {
+    /* оптимальный для чтения размер стандартных шрифтов */
+    font-size: 18px;
+    /* font-family: monospace;
+    font-family: 'Fira Code'; */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    overflow: hidden;
+}
+
+h1,
+h2 {
+    /* неагрессивное выделение заголовков */
+    font-weight: 600;
+}
+
+h1,
+h2,
+p {
+    text-align: left;
+}
+
+h1,
+h2,
+p,
+a {
+    /* Высота линии - ~150% от размера текущего шрифта */
+    line-height: 1.5em;
+    /* маржины = размер текущего шрифта */
+    margin: 1em 0;
+    display: inline;
+}
+
+h1 {
+    display: inline-block;
+    text-align: center;
+    /* При заголовках двух уровней заголовок h1 равен размеру шрифта х 2 */
+    font-size: 2rem;
+    text-align: center;
+}
+
+h2 {
+    display: block;
+    /* заголовок h2 - соответственно, ~150%.
+	 При большем количестве заголовков их размеры вычисляются прибавлением ~50%
+	Т.е. при трех будет ~150%, ~200% и ~250%. */
+    font-size: 1.5rem;
+}
+
+p {
+    /* обычный текст выравнивается исключительно по левому краю */
+    text-align: left;
+    /* отступ абзаца. Обычно равен ~ одному символу. */
+    /* text-indent: 1em; */
+    font-size: 1rem;
+    /* перенос слов по словарю. На данный момент поддержка браузерами оставляет желать лучшего. */
+    hyphens: auto;
+    max-width: 60em;
+}
+
+mark {
+    background-color: var(--color_main);
+    color: var(--color_text);
+}
+
+#page {
+    padding: 2em 2em 0;
+    --color_main: #ffffff;
+    --color_text: #000000;
+    width: 100%;
+    background: var(--color_main);
+    /* Текстовые блоки не более 45-65 символов в ширину(~600px). Будет одинаково хорошо читаться на экранах разных размеров */
+    /* max-width: 45em; */
+    margin: 0 auto;
+    transition: background var(--transition_long) var(--animation_default), color var(--transition_long) var(--animation_default);
+}
+
+#content {
+    max-width: 60rem;
+    margin: 0 auto;
+    text-align: left;
+    color: var(--color_text);
+}
+
+h1,
+a,
+p,
+button {
+    color: var(--color_text);
+}
+
+a {
+    text-decoration: none;
+    border-bottom: 2px solid var(--color_text);
+    font-weight: 700;
+}
+
+a:focus {
+    outline: none;
+}
+
+
+button {
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border: 5px solid var(--color_text);
+    box-shadow: 0px 0px 0px 0px var(--color_text);
+    padding: 10px 20px;
+    text-transform: uppercase;
+    font-weight: 800;
+    transition: box-shadow var(--transition_fast) var(--animation_default);
+}
+
+button:focus {
+    outline: none;
+    box-shadow: 5px 5px 0px 0px var(--color_text);
+}
+
+button:focus svg {
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+
+svg {
+    fill: var(--color_text);
+}
+
+.hoverable>* {
+    text-decoration: underline;
+}
+
+.hoverable svg {
+    margin: 0;
+}
+
+/* TYPOGRAPHY END  */
+
+
+/* MAIN STYLES  */
 
 html .theme-toggler path {
     fill: var(--color_text);
@@ -24,6 +171,8 @@ html #moon {
 
 html {
     overflow-x: hidden;
+    overflow-y: scroll;
+    background-color: transparent;
 }
 
 html,
@@ -34,25 +183,12 @@ body {
 
 body {
     height: 100vh;
-    background: var(--color_main);
-    cursor: none;
+    background: transparent;
     margin: 0;
     display: flex;
-    font-family: monospace;
-    font-family: 'Fira Code';
-    font-weight: 600;
     overflow-x: hidden;
 }
 
-#content {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: var(--color_main);
-}
 
 #themeTogglerLabel {
     position: absolute;
@@ -66,19 +202,6 @@ body {
     display: none;
 }
 
-#themeToggler:checked+#content {
-    --color_main: #010101;
-    --color_text: #ffc;
-}
-
-#themeToggler:checked+#content>#themeTogglerLabel>svg #sun {
-    visibility: hidden;
-}
-
-#themeToggler:checked+#content>#themeTogglerLabel>svg #moon {
-    visibility: visible;
-}
-
 /* CURSOR */
 #cursor {
     pointer-events: none;
@@ -86,10 +209,11 @@ body {
 
 .cursor__ball {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: -5px;
+    right: -4px;
     mix-blend-mode: difference;
     z-index: 1000;
+    background-color: var(--color_main);
 }
 
 .cursor__ball--big {
@@ -97,9 +221,9 @@ body {
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    background-color: var(--color_main);
-    transform: scale(1);
-    transition: transform .15s ease;
+
+    transform: scale(.4);
+    transition: transform .15s var(--animation_default);
 }
 
 .cursor__ball--small {
@@ -107,7 +231,134 @@ body {
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background-color: var(--color_main);
 }
 
-/* END CURSOR  */
+#themeToggler:checked+#page {
+    --color_main: #000000;
+    --color_text: #ffffff;
+}
+
+#themeToggler:checked+#page .cursor__ball {
+    background-color: var(--color_text);
+}
+
+#themeToggler:checked+#page #sun {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity var(--transition_fast) var(--animation_default);
+}
+
+#themeToggler:checked+#page #moon {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity var(--transition_fast) var(--animation_default);
+}
+
+#quote {
+    position: absolute;
+    padding: .5em;
+    display: block;
+    text-align: left;
+    font-size: 1rem;
+    max-width: 330px;
+    background-color: var(--color_text);
+    color: var(--color_main);
+}
+
+@media screen and (max-width: 1200px) {
+    #quote {
+        padding-left: 1rem;
+        display: flex;
+        align-items: center;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        min-height: 4rem;
+        background-color: var(--color_text);
+        color: var(--color_main);
+        /* height: 100px; */
+        max-width: initial;
+        margin-left: -1rem;
+    }
+
+    #page {
+        padding: 0 6rem;
+    }
+}
+
+#hello-world:after {
+    display: inline-block;
+    content: '|';
+    animation: blinkTextCursor 1s infinite var(--animation_default);
+}
+
+.anim-typewriter {
+    font-family: 'Fira Code Retina', monospace;
+    /* animation: blinkTextCursor .8s steps(28) infinite normal; */
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+@keyframes blinkTextCursor {
+    50% {
+        opacity: 0;
+    }
+}
+
+@keyframes typewriter {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 17.2em;
+    }
+}
+
+#menuSlider {
+    display: flex;
+}
+
+.tabsContent {
+    flex: 6;
+}
+
+.tabs {
+    flex: 1;
+    padding: 0;
+}
+
+.tabs li {
+    list-style: none;
+    margin:1.5em 0;
+}
+
+.tabs a {
+    font-size: 1.5rem;
+}
+
+.tabsContent {
+    text-indent: 1em;
+    position: relative;
+}
+
+.tabContent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 1.5em;
+}
+
+.tabContent:target {
+    opacity: 1;
+    transition: all .5s ease-in-out;
+}
+
+.tabContent:not(:target),
+.tabContent:target~.slide:last-child {
+    opacity: 0;
+}

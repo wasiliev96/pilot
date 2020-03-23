@@ -1,9 +1,0 @@
-html.dark {
-    --color_main: #010101;
-    --color_text: #ffc;
-}
-
-
-html.dark .cursor__ball {
-    background-color: var(--color_text);
-}
