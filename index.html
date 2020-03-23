@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Personal welcome page">
-    <link rel="stylesheet" href="./css/style.css"> 
+    <link rel="stylesheet" href="./css/style.css">
     <noscript>
         <style>
             * {
@@ -64,13 +64,56 @@
                     d="M17.75,4.09L15.22,6.03L16.13,9.09L13.5,7.28L10.87,9.09L11.78,6.03L9.25,4.09L12.44,4L13.5,1L14.56,4L17.75,4.09M21.25,11L19.61,12.25L20.2,14.23L18.5,13.06L16.8,14.23L17.39,12.25L15.75,11L17.81,10.95L18.5,9L19.19,10.95L21.25,11M18.97,15.95C19.8,15.87 20.69,17.05 20.16,17.8C19.84,18.25 19.5,18.67 19.08,19.07C15.17,23 8.84,23 4.94,19.07C1.03,15.17 1.03,8.83 4.94,4.93C5.34,4.53 5.76,4.17 6.21,3.85C6.96,3.32 8.14,4.21 8.06,5.04C7.79,7.9 8.75,10.87 10.95,13.06C13.14,15.26 16.1,16.22 18.97,15.95M17.33,17.97C14.5,17.81 11.7,16.64 9.53,14.5C7.36,12.31 6.2,9.5 6.04,6.68C3.23,9.82 3.34,14.64 6.35,17.66C9.37,20.67 14.19,20.78 17.33,17.97Z" />
             </svg>
         </label>
-        <div id="quote">
-            <span id="hello-world" class='anim-typewriter'>console.log("Привет, Мир!");</span>
-        </div>
+
         <div id="content" lang="ru">
             <h1 class="title">Программиста ищем, значит?</h1>
 
-            <div id="menuSlider">
+
+            <div id="box">
+                <label for="whoami_checkbox" id="whoami" class="hoverable">
+                    <h2>Кто я?</h2>
+                </label>
+                <div id="statistics" class="hoverable">
+                    <h2>Статистика</h2>
+                </div>
+                <div id="contacts" class="hoverable">
+                    <h2>Контакты</h2>
+                </div>
+                <div id="showcase" class="hoverable">
+                    <h2>Работы</h2>
+                </div>
+
+
+                <!-- MODAL  -->
+                <input type="checkbox" name="whoami" id="whoami_checkbox">
+                <div class="modal" id='whoami_modal'>
+                    <label class="modal__bg" for="whoami_checkbox"></label>
+                    <div class="modal__inner">
+                        <div class="modal__header">
+                            <h2>Кто я?</h2>
+                            <label class="modal__close hoverable" for="whoami_checkbox">
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 1L21 21" stroke-width="2" stroke-linejoin="round" />
+                                    <path d="M21 1L0.999998 21" stroke-width="2"
+                                        stroke-linejoin="round" />
+                                </svg>
+
+                            </label>
+                        </div>
+                        <p>Студент последних курсов технического вуза. Учился в Винницком Национальном Техническом
+                            университете, после перевелся в Хмельницкий Национальный Политехнический университет. Много
+                            работал в других сферах, имею несколько лет трудового стажа и опыта работы в продажах и
+                            кулинарии. <br><br>
+                            Сейчас иду к тому, чтобы сделать веб-разработку своей основной деятельностью и источником
+                            дохода./p>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- <div id="menuSlider">
                 <ul class="tabs">
                     <li><a href="#tab-1" class="hoverable">Кто я?</a></li>
                     <li><a href="#tab-2" class="hoverable">Тест</a></li>
@@ -88,42 +131,10 @@
                         <p>Bla</p>
                     </div>
                 </div>
-            </div>
-            <!-- <section>
-                <input type="radio" name="whoami" id="whoami">
-                <label for="whoami">
-                    <h1 class="hoverable">Кто я?</h1>
-                </label>
-                <div class="section-body">
-                    <p>Студент последних курсов технического вуза. Учился в Винницком Национальном Техническом
-                        университете, после перевелся в Хмельницкий Национальный Политехнический университет. Много
-                        работал в других сферах, имею несколько лет трудового стажа и опыта работы в продажах и
-                        кулинарии. <br><br>
-                        Сейчас иду к тому, чтобы сделать веб-разработку своей основной деятельностью и источником
-                        дохода.</p>
-                </div>
-            </section>
-            <section>
-                <input type="radio" name="whoami" id="whoami2">
-                <label for="whoami2">
-                    <h1 class="hoverable">Кто я?</h1>
-                </label>
-                <div class="section-body">
-                    <p>Студент последних курсов технического вуза. Учился в Винницком Национальном Техническом
-                        университете, после перевелся в Хмельницкий Национальный Политехнический университет. Много
-                        работал в других сферах, имею несколько лет трудового стажа и опыта работы в продажах и
-                        кулинарии. <br><br>
-                        Сейчас иду к тому, чтобы сделать веб-разработку своей основной деятельностью и источником
-                        дохода.</p>
-                </div>
-            </section> -->
-            <!-- <button class="hoverable">
-                <svg width="24" height="24" viewBox="0 0 24 24">
-                    <path
-                        d="M4,4H20A2,2 0 0,1 22,6V18A2,2 0 0,1 20,20H4C2.89,20 2,19.1 2,18V6C2,4.89 2.89,4 4,4M12,11L20,6H4L12,11M4,18H20V8.37L12,13.36L4,8.37V18Z" />
-                </svg>
-                Contact me
-            </button> -->
+            </div> -->
+        </div>
+        <div id="quote">
+            <span id="hello-world" class='anim-typewriter'>console.log("Привет, Мир!");</span>
         </div>
     </main>
     <script src="./js/script.js"></script>
