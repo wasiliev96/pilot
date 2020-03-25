@@ -82,7 +82,7 @@ setInterval(phraseGame, timePerPhrase * (phraselist.length + 1));
 
 
 // PROGRESS 
-let openTime = Math.floor(27 + Math.random() * (49 + 1 - 27));
+var openTime = Math.floor(27 + Math.random() * (49 + 1 - 27));
 
 let progressBar = document.getElementById('progressBar');
 var bar = new ProgressBar.Circle(progressBar, {
@@ -108,7 +108,8 @@ var bar = new ProgressBar.Circle(progressBar, {
 });
 
 let statictic_checkbox = document.getElementById('statistics_checkbox');
-statictic_checkbox.addEventListener('click', (e) => {
+
+function statistics_checkboxHandler(e) {
     if (e.target.checked) {
         bar.animate(openTime / 100);
         let userTime = setInterval(() => {
@@ -116,4 +117,7 @@ statictic_checkbox.addEventListener('click', (e) => {
             bar.set();
         }, 1000);
     } else bar.set(0); // Number from 0.0 to 1.0
+}
+statictic_checkbox.addEventListener('click', statistics_checkboxHandler, {
+    once: true
 });
