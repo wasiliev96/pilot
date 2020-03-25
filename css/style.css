@@ -490,7 +490,7 @@ input:checked+.modal {
     padding: 30px 50px;
 } */
 
-.low_counter {
+#statictics .low_counter {
     font-size: 1.5rem;
     text-transform: uppercase;
 }
@@ -538,7 +538,84 @@ input:checked+.modal {
 
 
 
+/* CONTACTS  */
 
+#contacts_box {
+    display: grid;
+    grid-template-areas:
+        'mail  mail  mail'
+        'instagram  facebook github'
+        'telegram  telegram  github'
+        'telegram  telegram  github';
+    border: 2px solid rgb(var(--color_text));
+    max-width: 580px;
+    height: 260px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#contacts_box a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    transition: color var(--transition_middle) var(--animation_default),
+        background-color var(--transition_middle) var(--animation_default);
+}
+
+#contacts_box a:hover {
+    color: rgb(var(--color_main));
+    background-color: rgb(var(--color_text));
+}
+
+#contacts_box svg {
+    width: 30px;
+    height: 30px;
+}
+
+#contacts_box a:hover path {
+    fill: rgb(var(--color_main));
+}
+
+#instagram,
+#facebook {
+    border-bottom: 2px solid rgb(var(--color_text));
+    height: 60px;
+}
+
+#contacts_box path {
+    fill: rgb(var(--color_text));
+}
+
+#mail {
+    grid-area: mail;
+    font-size: 1.5rem;
+    border-bottom: 2px solid rgb(var(--color_text));
+}
+
+#instagram {
+    grid-area: instagram;
+    border-right: 2px solid rgb(var(--color_text));
+}
+
+#facebook {
+    grid-area: facebook;
+}
+
+#telegram {
+    grid-area: telegram;
+}
+
+#github {
+    grid-area: github;
+    border-left: 2px solid rgb(var(--color_text));
+}
+
+#github svg {
+    width: 50px;
+    height: 50px;
+}
 
 
 /* QUERIES */

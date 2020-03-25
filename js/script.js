@@ -82,22 +82,24 @@ setInterval(phraseGame, timePerPhrase * (phraselist.length + 1));
 
 
 // PROGRESS 
+let openTime = Math.floor(27 + Math.random() * (49 + 1 - 27));
+
 let progressBar = document.getElementById('progressBar');
 var bar = new ProgressBar.Circle(progressBar, {
     strokeWidth: 6,
     easing: 'easeInOut',
-    duration: 5000,
+    duration: 1000,
     color: 'rgb(var(--color_text))',
     trailColor: 'transparent',
     trailWidth: 1,
-    text: '0',
+    text: '25',
     // Set default step function for all animate calls
     step: function (state, circle) {
         circle.path.setAttribute('stroke', 'rgb(var(--color_text))');
 
-        var value = Math.round(circle.value() * 200);
+        var value = Math.round(circle.value() * openTime);
         if (value === 0) {
-            circle.setText('0');
+            circle.setText('27');
         } else {
             circle.setText(value);
         }
@@ -107,6 +109,11 @@ var bar = new ProgressBar.Circle(progressBar, {
 
 let statictic_checkbox = document.getElementById('statistics_checkbox');
 statictic_checkbox.addEventListener('click', (e) => {
-    if (e.target.checked) bar.animate(0.75);
-    else bar.set(0); // Number from 0.0 to 1.0
+    if (e.target.checked) {
+        bar.animate(openTime / 100);
+        let userTime = setInterval(() => {
+            openTime++;
+            bar.set();
+        }, 1000);
+    } else bar.set(0); // Number from 0.0 to 1.0
 });
