@@ -66,7 +66,7 @@ p {
     /* обычный текст выравнивается исключительно по левому краю */
     text-align: left;
     /* отступ абзаца. Обычно равен ~ одному символу. */
-    /* text-indent: 1em; */
+    text-indent: 1em;
     font-size: 1rem;
     /* перенос слов по словарю. На данный момент поддержка браузерами оставляет желать лучшего. */
     hyphens: auto;
@@ -74,14 +74,14 @@ p {
 }
 
 mark {
-    background-color: var(--color_main);
-    color: var(--color_text);
+    background-color: rgb(var(--color_main));
+    color: rgb(var(--color_text));
 }
 
 #page {
     /* padding: 2em 2em 0; */
-    --color_main: #FDEABA;
-    --color_text: #18454F;
+    --color_main: 253, 234, 186;
+    --color_text: 24, 69, 79;
 
     position: relative;
     width: 100%;
@@ -89,7 +89,7 @@ mark {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--color_main);
+    background: rgb(var(--color_main));
     /* Текстовые блоки не более 45-65 символов в ширину(~600px). Будет одинаково хорошо читаться на экранах разных размеров */
     /* max-width: 45em; */
     padding: 0 2em;
@@ -106,7 +106,7 @@ h1,
 a,
 p,
 button {
-    color: var(--color_text);
+    color: rgb(var(--color_text));
 }
 
 a {
@@ -144,7 +144,7 @@ button:focus svg {
 }
 
 svg {
-    fill: var(--color_text);
+    fill: rgb(var(--color_text));
 }
 
 
@@ -195,7 +195,7 @@ body {
     top: 0;
     right: 0;
     padding: 20px;
-    z-index: 1;
+    z-index: 9999;
 }
 
 #themeToggler {
@@ -210,11 +210,11 @@ body {
 
 .cursor__ball {
     position: absolute;
-    top: -5px;
-    right: -4px;
+    top: 0;
+    right: 0;
     mix-blend-mode: difference;
     z-index: 9999;
-    background-color: var(--color_main);
+    background-color: rgb(var(--color_main));
 }
 
 .cursor__ball--big {
@@ -225,7 +225,7 @@ body {
 
     transform: scale(.4);
     transition: transform .15s var(--animation_default);
-    z-index: 9998;
+    z-index: 99999;
 }
 
 .cursor__ball--small {
@@ -236,12 +236,12 @@ body {
 }
 
 #themeToggler:checked+#page {
-    --color_main: #18454F;
-    --color_text: #FDEABA;
+    --color_main: 24, 69, 79;
+    --color_text: 253, 234, 186;
 }
 
 #themeToggler:checked+#page .cursor__ball {
-    background-color: var(--color_text);
+    background-color: rgb(var(--color_text));
 }
 
 #themeToggler:checked+#page #sun {
@@ -259,14 +259,15 @@ body {
 #quote {
     position: fixed;
     bottom: 0;
-    padding: .5em;
+    padding: 1em;
     display: block;
     text-align: left;
     width: 100%;
-    background-color: var(--color_main);
-    color: var(--color_text);
-    border-top: 2px solid var(--color_text);
+    background-color: rgb(var(--color_main));
+    color: rgb(var(--color_text));
+    border-top: 2px solid rgb(var(--color_text));
     min-height: 120px;
+    z-index: 1001;
 }
 
 #hello-world:after {
@@ -300,7 +301,7 @@ body {
 /* Content  */
 
 #content {
-    color: var(--color_text);
+    color: rgb(var(--color_text));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -314,14 +315,14 @@ body {
 /* BOX  */
 #whoami {
     grid-area: whoami;
-    border-bottom: 2px solid var(--color_text);
+    border-bottom: 2px solid rgb(var(--color_text));
     height: 100px;
 }
 
 #statistics {
     height: 60px;
     grid-area: statistics;
-    border-bottom: 2px solid var(--color_text);
+    border-bottom: 2px solid rgb(var(--color_text));
 }
 
 #contacts {
@@ -331,7 +332,7 @@ body {
 
 #showcase {
     grid-area: showcase;
-    border-left: 2px solid var(--color_text);
+    border-left: 2px solid rgb(var(--color_text));
 }
 
 #box {
@@ -341,7 +342,7 @@ body {
         'whoami    whoami'
         'statistics    showcase'
         'contacts   showcase';
-    border: 2px solid var(--color_text);
+    border: 2px solid rgb(var(--color_text));
 }
 
 #box>input {
@@ -365,52 +366,8 @@ body {
 
 #box>div:not(.modal):hover,
 #box>label:not(.modal):hover {
-    background-color: var(--color_text);
-    color: var(--color_main);
-}
-
-
-@media screen and (max-width: 1200px) {
-    #quote {
-        padding: 2em;
-        display: flex;
-        width: 100%;
-        /* height: 100px; */
-        max-width: initial;
-    }
-}
-
-@media screen and (max-width: 420px) {
-    #page {
-        padding: 0;
-    }
-
-    h1 {
-        font-size: 2rem;
-    }
-
-    #content {
-        width: 100%;
-    }
-
-    #box {
-        width: 100%;
-    }
-
-    #box h2 {
-        font-size: 6vw;
-    }
-
-    #box>div,
-    #box>label {
-        padding: 0;
-    }
-
-    #statistics,
-    #contacts,
-    #showcase {
-        width: 100%;
-    }
+    background-color: rgb(var(--color_text));
+    color: rgb(var(--color_main));
 }
 
 
@@ -448,27 +405,34 @@ input:checked+.modal {
 
 .modal__inner {
     position: absolute;
-    top: 50%;
+    top: 35%;
     right: 0;
     bottom: 0;
     left: 0;
-    transform: translateY(-30%);
+    /* transform: translateY(-30%); */
     width: 100%;
     max-width: 800px;
     margin: auto;
-    overflow: auto;
-    background: var(--color_main);
-    border-radius: 5px;
+    background: rgb(var(--color_main));
     padding: 1em 2em;
-    height: 50%;
+    min-height: 70%;
+    overflow: scroll;
+}
+
+.modal__inner::-webkit-scrollbar {
+    display: none;
+}
+
+.modal__inner {
+    scrollbar-width: none;
 }
 
 .modal__header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 2px solid var(--color_text);
-    margin-bottom: 60px;
+    border-bottom: 2px solid rgb(var(--color_text));
+    margin-bottom: 50px;
 }
 
 .modal__close {
@@ -477,5 +441,179 @@ input:checked+.modal {
 }
 
 .modal__close svg path {
-    stroke: var(--color_text);
+    stroke: rgb(var(--color_text));
+}
+
+/* STATISTICS */
+#statistics_box {
+    display: grid;
+    grid-template-areas:
+        'complete_projects  line_counter'
+        'averal_day  line_counter';
+    grid-template-columns: 6fr 4fr;
+    border: 2px solid rgb(var(--color_text));
+    max-width: 580px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+#statistics_box>div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#complete_projects {
+    grid-area: complete_projects;
+    border-bottom: 2px solid rgb(var(--color_text));
+}
+
+#averal_day {
+    grid-area: averal_day;
+}
+
+#averal_day .counter_upper {
+    padding-left: 0.7em;
+}
+
+#line_counter {
+    grid-area: line_counter;
+    border-left: 2px solid rgb(var(--color_text));
+}
+
+/* .counter_upper {
+    font-size: 3.5rem;
+    border-bottom: 1px solid var(--color_text);
+    width: 100%;
+    text-align: center;
+    padding: 30px 50px;
+} */
+
+.low_counter {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+
+/* .counter_circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
+    margin: 0 auto;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 2px solid var(--color_text);
+} */
+
+
+.counter_upper {
+    font-size: 3.5rem;
+    width: 100%;
+    height: 100%;
+    border-bottom: 1px solid rgb(var(--color_text));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.counter_desc {
+    width: 100%;
+    padding: 0.8em .3em;
+    text-align: center;
+}
+
+#progressBar {
+    position: relative;
+    padding: 1.5rem;
+}
+
+#progressBar>div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+
+
+
+/* QUERIES */
+
+@media screen and (max-width: 1200px) {
+    #quote {
+        display: flex;
+        width: 100%;
+        /* height: 100px; */
+        max-width: initial;
+    }
+
+    .modal__bg {
+        background-color: rgb(var(--color_main));
+    }
+
+    .modal__inner {
+        top: 50%;
+        transform: translateY(-25%);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #page {
+        padding: 0;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    #content {
+        width: 100%;
+    }
+
+    #box {
+        width: 100%;
+    }
+
+    #box h2 {
+        font-size: 5vw;
+    }
+
+    #box>div,
+    #box>label {
+        padding: 0;
+    }
+
+    #statistics,
+    #contacts,
+    #showcase {
+        width: 100%;
+    }
+
+    .modal__inner {
+        padding: 1em .3em;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    #box h2 {
+        font-size: 1.2rem;
+    }
+
+    .counter_upper {
+        font-size: 2rem;
+    }
+
+    #progressBar {
+        font-size: 1.2em;
+        padding: .5em;
+    }
+
+    .low_counter {
+        font-size: 1.2rem;
+    }
+
 }

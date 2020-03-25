@@ -19,14 +19,14 @@ var xp = 0,
 function onMouseMove(e) {
     mouseX = e.pageX;
     mouseY = e.pageY;
-    $smallBall.style.left = mouseX + 'px';
-    $smallBall.style.top = mouseY + 'px';
+    $smallBall.style.left = mouseX - 5 + 'px';
+    $smallBall.style.top = mouseY - 5 + 'px';
 }
 setInterval(function () {
     xp += ((mouseX - xp) / 6);
     yp += ((mouseY - yp) / 6);
-    $bigBall.style.left = xp - 45 + 'px';
-    $bigBall.style.top = yp - 45 + 'px';
+    $bigBall.style.left = xp - 50 + 'px';
+    $bigBall.style.top = yp - 50 + 'px';
 }, 10);
 
 function onMouseHover() {
@@ -79,3 +79,34 @@ function phraseGame() {
 }
 phraseGame();
 setInterval(phraseGame, timePerPhrase * (phraselist.length + 1));
+
+
+// PROGRESS 
+let progressBar = document.getElementById('progressBar');
+var bar = new ProgressBar.Circle(progressBar, {
+    strokeWidth: 6,
+    easing: 'easeInOut',
+    duration: 5000,
+    color: 'rgb(var(--color_text))',
+    trailColor: 'transparent',
+    trailWidth: 1,
+    text: '0',
+    // Set default step function for all animate calls
+    step: function (state, circle) {
+        circle.path.setAttribute('stroke', 'rgb(var(--color_text))');
+
+        var value = Math.round(circle.value() * 200);
+        if (value === 0) {
+            circle.setText('0');
+        } else {
+            circle.setText(value);
+        }
+
+    }
+});
+
+let statictic_checkbox = document.getElementById('statistics_checkbox');
+statictic_checkbox.addEventListener('click', (e) => {
+    if (e.target.checked) bar.animate(0.75);
+    else bar.set(0); // Number from 0.0 to 1.0
+});

@@ -28,20 +28,6 @@
 </head>
 
 <body>
-    <!-- <a class="theme-toggler light hoverable" onclick="test()">
-        <svg class="mainSVG" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-            xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" width="50px" height="50px"
-            style="width:50px;height:50px" viewBox="0 0 25 25" xml:space="preserve">
-            <defs>
-            </defs>
-
-            <path id='sun'
-                d="M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,2L14.39,5.42C13.65,5.15 12.84,5 12,5C11.16,5 10.35,5.15 9.61,5.42L12,2M3.34,7L7.5,6.65C6.9,7.16 6.36,7.78 5.94,8.5C5.5,9.24 5.25,10 5.11,10.79L3.34,7M3.36,17L5.12,13.23C5.26,14 5.53,14.78 5.95,15.5C6.37,16.24 6.91,16.86 7.5,17.37L3.36,17M20.65,7L18.88,10.79C18.74,10 18.47,9.23 18.05,8.5C17.63,7.78 17.1,7.15 16.5,6.64L20.65,7M20.64,17L16.5,17.36C17.09,16.85 17.62,16.22 18.04,15.5C18.46,14.77 18.73,14 18.87,13.21L20.64,17M12,22L9.59,18.56C10.33,18.83 11.14,19 12,19C12.82,19 13.63,18.83 14.37,18.56L12,22Z" />
-            <path id='moon'
-                d="M17.75,4.09L15.22,6.03L16.13,9.09L13.5,7.28L10.87,9.09L11.78,6.03L9.25,4.09L12.44,4L13.5,1L14.56,4L17.75,4.09M21.25,11L19.61,12.25L20.2,14.23L18.5,13.06L16.8,14.23L17.39,12.25L15.75,11L17.81,10.95L18.5,9L19.19,10.95L21.25,11M18.97,15.95C19.8,15.87 20.69,17.05 20.16,17.8C19.84,18.25 19.5,18.67 19.08,19.07C15.17,23 8.84,23 4.94,19.07C1.03,15.17 1.03,8.83 4.94,4.93C5.34,4.53 5.76,4.17 6.21,3.85C6.96,3.32 8.14,4.21 8.06,5.04C7.79,7.9 8.75,10.87 10.95,13.06C13.14,15.26 16.1,16.22 18.97,15.95M17.33,17.97C14.5,17.81 11.7,16.64 9.53,14.5C7.36,12.31 6.2,9.5 6.04,6.68C3.23,9.82 3.34,14.64 6.35,17.66C9.37,20.67 14.19,20.78 17.33,17.97Z" />
-        </svg>
-    </a> -->
-
     <input type="checkbox" name="theme-toggler" id="themeToggler">
     <main id="page">
         <div id="cursor">
@@ -52,6 +38,7 @@
             </div>
         </div>
         <label id='themeTogglerLabel' for="themeToggler" class="hoverable">
+
             <svg class="mainSVG" version="1.1" xmlns="http://www.w3.org/2000/svg"
                 xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
                 width="50px" height="50px" style="width:50px;height:50px" viewBox="0 0 25 25" xml:space="preserve">
@@ -73,9 +60,9 @@
                 <label for="whoami_checkbox" id="whoami" class="hoverable">
                     <h2>Кто я?</h2>
                 </label>
-                <div id="statistics" class="hoverable">
-                    <h2>Статистика</h2>
-                </div>
+                <label for="statistics_checkbox" id="statistics" class="hoverable">
+                    <h2> Статистика</h2>
+                </label>
                 <div id="contacts" class="hoverable">
                     <h2>Контакты</h2>
                 </div>
@@ -85,6 +72,7 @@
 
 
                 <!-- MODAL  -->
+                <!-- WHOAMI  -->
                 <input type="checkbox" name="whoami" id="whoami_checkbox">
                 <div class="modal" id='whoami_modal'>
                     <label class="modal__bg" for="whoami_checkbox"></label>
@@ -95,8 +83,7 @@
                                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path d="M1 1L21 21" stroke-width="2" stroke-linejoin="round" />
-                                    <path d="M21 1L0.999998 21" stroke-width="2"
-                                        stroke-linejoin="round" />
+                                    <path d="M21 1L0.999998 21" stroke-width="2" stroke-linejoin="round" />
                                 </svg>
 
                             </label>
@@ -104,39 +91,59 @@
                         <p>Студент последних курсов технического вуза. Учился в Винницком Национальном Техническом
                             университете, после перевелся в Хмельницкий Национальный Политехнический университет. Много
                             работал в других сферах, имею несколько лет трудового стажа и опыта работы в продажах и
-                            кулинарии. <br><br>
+                            кулинарии. <br>
                             Сейчас иду к тому, чтобы сделать веб-разработку своей основной деятельностью и источником
-                            дохода./p>
+                            дохода.</p>
+                    </div>
+                </div>
+
+                <!-- STATISTICS  -->
+                <input type="checkbox" name="statistics" id="statistics_checkbox">
+                <div class="modal" id='whoami_modal'>
+                    <label class="modal__bg" for="statistics_checkbox"></label>
+                    <div class="modal__inner">
+                        <div class="modal__header">
+                            <h2>Статистика</h2>
+                            <label class="modal__close hoverable" for="statistics_checkbox">
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 1L21 21" stroke-width="2" stroke-linejoin="round" />
+                                    <path d="M21 1L0.999998 21" stroke-width="2" stroke-linejoin="round" />
+                                </svg>
+                            </label>
+                        </div>
+
+                        <div id="statistics_box">
+                            <div id="complete_projects">
+                                <div class="counter_upper">5</div>
+                                <div class="counter_desc">Количество готовых проектов</div>
+                            </div>
+
+                            <div id="averal_day">
+                                <div class="counter_upper">
+                                    <div>3<span class="low_counter">дня</span></div>
+                                </div>
+                                <div class="counter_desc">Среднее время выполнения проекта.</div>
+                            </div>
+
+                            <div id="line_counter">
+                                <div class="counter_upper" id='progressBar'>
+                                </div>
+                                <div class="counter_desc">
+                                    Возможное количество написаных строк кода пока вы читаете эту информацию
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-
-
-            <!-- <div id="menuSlider">
-                <ul class="tabs">
-                    <li><a href="#tab-1" class="hoverable">Кто я?</a></li>
-                    <li><a href="#tab-2" class="hoverable">Тест</a></li>
-                </ul>
-                <div class="tabsContent">
-                    <div class="tabContent" id="tab-1" target>
-                        <p>Студент последних курсов технического вуза. Учился в Винницком Национальном Техническом
-                            университете, после перевелся в Хмельницкий Национальный Политехнический университет. Много
-                            работал в других сферах, имею несколько лет трудового стажа и опыта работы в продажах и
-                            кулинарии. <br><br>
-                            Сейчас иду к тому, чтобы сделать веб-разработку своей основной деятельностью и источником
-                            дохода.</p>
-                    </div>
-                    <div class="tabContent" id="tab-2">
-                        <p>Bla</p>
-                    </div>
-                </div>
-            </div> -->
         </div>
         <div id="quote">
             <span id="hello-world" class='anim-typewriter'>console.log("Привет, Мир!");</span>
         </div>
     </main>
+    <script src="./js/progressbar.js"></script>
     <script src="./js/script.js"></script>
 </body>
 
