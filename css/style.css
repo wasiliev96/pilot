@@ -300,7 +300,7 @@ body {
     color: rgb(var(--color_text));
     border-top: 2px solid rgb(var(--color_text));
     min-height: 120px;
-    z-index: 1001;
+    z-index: 0;
 }
 
 #hello-world:after {
@@ -339,6 +339,7 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    padding: 0 .3em;
 }
 
 .title {
@@ -369,7 +370,8 @@ body {
 }
 
 #box {
-    max-width: 384px;
+    width: 100%;
+    max-width: 420px;
     display: grid;
     grid-template-areas:
         'whoami    whoami'
@@ -629,12 +631,14 @@ input:checked+.modal {
         'mail  mail  mail'
         'instagram  facebook github'
         'telegram  telegram  github'
-        'telegram  telegram  github';
+        'telegram  telegram  github'
+        'designer  designer  designer';
     grid-template-columns: 1fr 1fr 1.5fr;
     grid-template-rows: 1fr .6fr 1fr;
     border: 2px solid rgb(var(--color_text));
     height: 260px;
-    max-width: 400px;
+    width: 100%;
+    max-width: 420px;
     margin: 0 auto;
     text-align: center;
 }
@@ -702,6 +706,11 @@ input:checked+.modal {
     height: 50px;
 }
 
+#designer {
+    padding: 2px;
+    grid-area: designer;
+    border-top: 2px solid rgb(var(--color_text));
+}
 
 /* WORKS  */
 .work-link {
