@@ -450,6 +450,7 @@ input:checked+.modal {
     padding: 1em 2em;
     min-height: 70%;
     overflow: hidden;
+    transition: background-color var(--transition_middle) var(--animation_default);
 }
 
 /* SCROLLBAR  */
