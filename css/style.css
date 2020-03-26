@@ -87,6 +87,7 @@ mark {
     width: 100%;
     min-height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     background: rgb(var(--color_main));
@@ -722,11 +723,88 @@ input:checked+.modal {
     display: block;
 }
 
+
+
+
+/* PACMAN */
+.pacman-container {
+    width: 100%;
+    transform: translateY(-50px);
+    display: flex;
+}
+
+.pacman {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: rgb(var(--color_text));
+    position: relative;
+    transform: translateX(-2vw);
+    animation: pacman-move 50s ease infinite;
+}
+
+@keyframes pacman-move {
+    to {
+        transform: translateX(100vw);
+    }
+}
+
+.pacman:before {
+    content: '';
+    background: rgb(var(--color_main));
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(100% 74%, 44% 48%, 100% 21%);
+    animation-delay: 0;
+    animation-name: eat;
+    transform: rotate(-10deg);
+    animation-duration: .5s;
+    animation-iteration-count: infinite;
+}
+
+.pacman-food {
+    margin: 3px 0 0 30px;
+    animation: food 1s ease-in-out infinite;
+
+}
+
+@keyframes food {
+    50% {
+        transform: translateY(-4px);
+    }
+
+    750% {
+        transform: translateY(8px);
+    }
+}
+
+@keyframes eat {
+    0% {
+        clip-path: polygon(100% 74%, 44% 48%, 100% 21%);
+    }
+
+    25% {
+        clip-path: polygon(100% 60%, 44% 48%, 100% 40%);
+    }
+
+    50% {
+        clip-path: polygon(100% 50%, 44% 48%, 100% 50%);
+    }
+
+    75% {
+        clip-path: polygon(100% 59%, 44% 48%, 100% 35%);
+    }
+
+    100% {
+        clip-path: polygon(100% 74%, 44% 48%, 100% 21%);
+    }
+}
+
 /* QUERIES */
 
 @media screen and (max-width: 1200px) {
     #quote {
-        display: flex;
         width: 100%;
         /* height: 100px; */
         max-width: initial;
@@ -776,6 +854,21 @@ input:checked+.modal {
 
     .modal__inner {
         padding: 1em .3em;
+    }
+
+    .pacman-container {
+        transform: translateY(-65px);
+    }
+
+    .pacman {
+        height: 30px;
+        width: 30px;
+        animation: pacman-move 20s ease infinite;
+    }
+
+    .pacman-food {
+        margin: 3px 0 0 40px;
+
     }
 }
 
