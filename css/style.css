@@ -1,7 +1,7 @@
 :root {
     --transition_fast: .15s;
     --transition_middle: .3s;
-    --transition_long: .45s;
+    --transition_long: .6s;
     --animation_default: cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
@@ -193,7 +193,7 @@ body {
 #themeTogglerLabel {
     position: absolute;
     top: 0;
-    right: 0;
+    right: 20px;
     padding: 20px;
     z-index: 9999;
 }
@@ -235,6 +235,37 @@ body {
     border-radius: 50%;
 }
 
+#themeIcon {
+    width: 200px;
+    height: 71px;
+    transform: translateX(50px);
+}
+
+#cloud_left,
+#cloud_right {
+    fill: rgb(var(--color_text));
+    transition: transform var(--transition_long) var(--animation_default),
+        opacity var(--transition_middle) var(--animation_default);
+
+}
+
+#cloud_left {
+    transform: translate(-70%, 20%);
+}
+
+#cloud_right {
+    transform: translate(70%, -20%);
+}
+
+#sun>path,
+#sun>circle,
+#sun>line,
+#moon>circle {
+    stroke: rgb(var(--color_text));
+    opacity: 1;
+    transition: opacity var(--transition_long) var(--animation_default);
+}
+
 #themeToggler:checked+#page {
     --color_main: 24, 69, 79;
     --color_text: 253, 234, 186;
@@ -244,17 +275,19 @@ body {
     background-color: rgb(var(--color_text));
 }
 
-#themeToggler:checked+#page #sun {
-    visibility: hidden;
+#themeToggler:checked+#page #sun path {
     opacity: 0;
     transition: opacity var(--transition_fast) var(--animation_default);
 }
 
-#themeToggler:checked+#page #moon {
-    visibility: visible;
-    opacity: 1;
-    transition: opacity var(--transition_fast) var(--animation_default);
+#themeToggler:checked+#page #cloud_left {
+    transform: translate(-20%, 20%);
 }
+
+#themeToggler:checked+#page #cloud_right {
+    transform: translate(30%, -20%);
+}
+
 
 #quote {
     position: fixed;
