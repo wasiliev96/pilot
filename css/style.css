@@ -173,7 +173,7 @@ html #moon {
 
 html {
     overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-y: hidden;
     background-color: transparent;
 }
 
@@ -330,8 +330,8 @@ body {
     grid-area: contacts;
 }
 
-#showcase {
-    grid-area: showcase;
+#works {
+    grid-area: works;
     border-left: 2px solid rgb(var(--color_text));
 }
 
@@ -340,8 +340,8 @@ body {
     display: grid;
     grid-template-areas:
         'whoami    whoami'
-        'statistics    showcase'
-        'contacts   showcase';
+        'statistics    works'
+        'contacts   works';
     border: 2px solid rgb(var(--color_text));
 }
 
@@ -416,15 +416,46 @@ input:checked+.modal {
     background: rgb(var(--color_main));
     padding: 1em 2em;
     min-height: 70%;
-    overflow: scroll;
+    overflow: hidden;
 }
 
-.modal__inner::-webkit-scrollbar {
-    display: none;
+/* SCROLLBAR  */
+/* firefox  */
+.works-container {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(var(--color_main)) rgb(var(--color_text));
 }
 
-.modal__inner {
-    scrollbar-width: none;
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: linear-gradient(90deg, transparent 0%,
+            transparent 40%,
+            rgba(var(--color_text), 0.4) 40%,
+            rgba(var(--color_text), 0.4) 60%,
+            transparent 60%,
+            transparent 100%);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    width: 10px;
+    background: transparent;
+    border-top: 35px solid rgb(var(--color_text));
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    /* background: #555; */
+}
+
+::-webkit-scrollbar-track-piece {
+    /* margin-bottom: 70%; */
+    /* margin-bottom: calc(30px); */
 }
 
 .modal__header {
@@ -442,6 +473,24 @@ input:checked+.modal {
 
 .modal__close svg path {
     stroke: rgb(var(--color_text));
+}
+
+.works-container {
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 1em 2em;
+}
+
+.works-container a {
+    text-indent: 1em;
+    font-weight: normal;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    transition: text-decoration-color var(--transition_fast) var(--animation_default);
+}
+
+.works-container a:hover {
+    text-decoration-color: rgb(var(--color_text));
 }
 
 /* STATISTICS */
@@ -512,7 +561,7 @@ input:checked+.modal {
     font-size: 3.5rem;
     width: 100%;
     height: 100%;
-    border-bottom: 1px solid rgb(var(--color_text));
+    border-bottom: 1px solid rgba(var(--color_text), 0.4);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -592,6 +641,7 @@ input:checked+.modal {
 #mail {
     grid-area: mail;
     font-size: 1.2rem;
+    font-weight: normal;
     border-bottom: 2px solid rgb(var(--color_text));
 }
 
@@ -618,6 +668,16 @@ input:checked+.modal {
     height: 50px;
 }
 
+
+/* WORKS  */
+.work-link {
+    padding: 15px 0;
+    border-top: 2px solid rgba(var(--color_text), 0.4);
+}
+
+.work-link a {
+    display: block;
+}
 
 /* QUERIES */
 
@@ -667,7 +727,7 @@ input:checked+.modal {
 
     #statistics,
     #contacts,
-    #showcase {
+    #works {
         width: 100%;
     }
 
