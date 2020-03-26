@@ -255,7 +255,7 @@ body {
 }
 
 #cloud_right {
-    transform: translate(70%, -20%);
+    transform: translate(78%, -16%);
 }
 
 #sun>path,
@@ -286,7 +286,7 @@ body {
 }
 
 #themeToggler:checked+#page #cloud_right {
-    transform: translate(30%, -20%);
+    transform: translate(30%, -16%);
 }
 
 
