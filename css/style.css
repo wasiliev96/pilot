@@ -485,16 +485,6 @@ input:checked+.modal {
     border-top: 35px solid rgb(var(--color_text));
 }
 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-    /* background: #555; */
-}
-
-::-webkit-scrollbar-track-piece {
-    /* margin-bottom: 70%; */
-    /* margin-bottom: calc(30px); */
-}
-
 .modal__header {
     display: flex;
     justify-content: space-between;
