@@ -9,7 +9,7 @@
 * {
     user-select: none;
     box-sizing: border-box;
-    /* cursor: none; */
+    cursor: none;
 }
 
 html,
@@ -43,7 +43,7 @@ p {
     /* Высота линии - ~150% от размера текущего шрифта */
     line-height: 1.5;
     /* маржины = размер текущего шрифта */
-    display: inline;
+    /* display: inline; */
 }
 
 h1 {
