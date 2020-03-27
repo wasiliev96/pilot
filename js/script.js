@@ -6,7 +6,7 @@ const $moon = document.getElementById('moon');
 const $sun = document.getElementById('sun');
 // Listeners
 document.body.addEventListener('mousemove', onMouseMove);
-for (let i = 0; i < $hoverables.length; i++) {
+for (let i = 0; i < $hoverables.length; i += 1) {
     $hoverables[i].addEventListener('mouseover', onMouseHover);
     $hoverables[i].addEventListener('mouseout', onMouseHoverOut);
 }
@@ -60,7 +60,7 @@ function printMessage(input) {
             clearInterval(messageInterval);
             // setTimeout(phraseGame, 3000);
         }
-        i++;
+        i += 1;
     }, letterPrintTime);
 }
 
@@ -113,10 +113,12 @@ function statistics_checkboxHandler(e) {
     if (e.target.checked) {
         bar.animate(openTime / 100);
         let userTime = setInterval(() => {
-            openTime++;
+            openTime += 1;
             bar.set();
         }, 1000);
-    } else bar.set(0); // Number from 0.0 to 1.0
+    } else {
+        bar.set(0);
+    } // Number from 0.0 to 1.0
 }
 statictic_checkbox.addEventListener('click', statistics_checkboxHandler, {
     once: true
